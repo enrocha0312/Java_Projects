@@ -112,26 +112,7 @@ public class SalesReader {
     }
 
     public Map<String, BigDecimal> top3BestSellers() {
-        // TODO implementar
 
-        /*
-         * Teste pergunta 2
-         * */
-        var teste = sales.stream().map(s->s.getManager())
-                .distinct()
-                .map(manager-> Map.of(manager, sales.stream().filter(s ->s.isCancelled() && (
-                                s.getSaleDate().getYear() >= 2013 && s.getSaleDate().getYear() <=2014) && s.getManager().equals(manager))
-                                .map(s->s.getValue())
-                                .reduce((s1,s2)->s1.add(s2))
-                                .get()
-                        ))
-                .filter(m-> m.containsKey("Amauri Castro") ||
-                        m.containsKey("Elenice Mendes") ||
-                        m.containsKey("Raimundo Moraes") ||
-                        m.containsKey("Roberta Camargo") ||
-                        m.containsKey("Luiz Miranda") )
-                .sorted((m1,m2) -> m2.values().stream().findFirst().get().compareTo(m1.values().stream().findFirst().get()))
-                .collect(toList());
 
         Map<String,BigDecimal> map = new HashMap<>();
         sales
