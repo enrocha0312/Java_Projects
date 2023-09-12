@@ -18,7 +18,6 @@ import static java.util.stream.Collectors.*;
 public class SalesReader {
 
     private final List<Sale> sales;
-
     public SalesReader(String salesFile) {
 
         final var dataStream = ClassLoader.getSystemResourceAsStream(salesFile);
